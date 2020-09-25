@@ -1,7 +1,7 @@
 //Global variables
 let employees = [];
 const urlApi = `https://randomuser.me/api/?results=12&inc=name, picture,
-email, location, phone, dob &noinfo &nat=US`
+email, location, phone, dob &noinfo &nat=US`;
 const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-text");
@@ -11,15 +11,9 @@ const modalClose = document.querySelector(".modal-close");
     Fetch Functions
 -----------------------*/
 fetch(urlApi)
-  .then(response => response.json())
-  .then(employeeData => displayEmployees(employeeData.results))
-  .catch((err) => Error(err.responseText))
-
-  fetch(urlApi)
-    .then(response => response.json())
-    .then(index => displayModal(index.results))
-    
-  
+  .then((response) => response.json())
+  .then((employeeData) => displayEmployees(employeeData.results))
+  .catch((err) => Error(err.responseText));
 
 /*---------------------
     Helper functions
@@ -32,7 +26,7 @@ function displayEmployees(employeeData) {
     let email = employee.email;
     let city = employee.location.city;
     let picture = employee.picture;
-    
+
     employeeHTML += `
             <div class="card" data-index"${index}">
                 <img class="avatar" src="${picture.large}"/>
@@ -48,14 +42,13 @@ function displayEmployees(employeeData) {
 }
 
 function displayModal(index) {
-  
   let {
     name,
     dob,
     phone,
     email,
     location: { city, street, state, postalCode },
-    picture
+    picture,
   } = employees[index];
 
   let date = new Date(dob.date);
@@ -73,26 +66,24 @@ function displayModal(index) {
             </div>
     `;
 
-    overlay.classList.remove('hidden');
-    modalContainer.innerHTML = modalHTML;
+  overlay.classList.remove("hidden");
+  modalContainer.innerHTML = modalHTML;
 }
-
-
 
 /*--------------------------
 Event Listeners
 ---------------------------*/
-gridContainer.addEventListener('click', e => {
-    let element = e.target;
-    if (element !== gridContainer) {
-        const card = element.closest('.card');
-        const index = card.getAttribute('data-index');
+gridContainer.addEventListener("click", (e) => {
+  let element = e.target;
+  if (element !== gridContainer) {
+    const card = element.closest(".card");
+    const index = card.getAttribute("data-index");
 
-        // displayModal(index);
-        console.log(displayModal(index));
-    }
+    // displayModal(index);
+    console.log(displayModal(index));
+  }
 });
 
-modalClose.addEventListener('click', e => {
-    overlay.classList.add('hidden');
+modalClose.addEventListener("click", (e) => {
+  overlay.classList.add("hidden");
 });

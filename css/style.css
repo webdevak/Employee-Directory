@@ -1,18 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+
 body {
   position: relative;
   background-color: #f5f5f5;
 }
 
-.overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  background: rgba(100, 100, 100, 0.4);
-}
 
 header {
-  margin-top: 30px;
   margin-left: 5%;
   padding: 10px;
   color: #53535a;
@@ -21,18 +18,42 @@ header {
 .grid-container {
   display: flex;
   flex-wrap: wrap;
-  /* grid-template-columns:repeat(auto-f,1fr) ;
-  grid-template-rows: auto;
-  grid-gap: 10px; */
-  width: 80%;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  /* margin-bottom: 100px; */
+  padding-bottom: 100px;
 }
 
-.text-container > p {
+
+.card {
+  display: flex;
+  width: 100%;
+  max-width: 360px;
+  border: 1px solid lightgrey;
+  border-radius: 7px;
+  margin: 10px 10px 20px;
+  background-color: #fff;
+  padding: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-avatar {
+  border-radius: 50%;
+  width: 97px;
+  margin: 10px 15px auto 10px;
+}
+
+.card-text {
+  text-align: right;
+}
+
+.card-text-container > p {
   color: #8b8383;
-}
+  text-align: left;
 
+}
 
 .modal {
   width: 375px;
@@ -51,26 +72,15 @@ header {
   top: 5px;
 }
 
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: rgba(100, 100, 100, 0.4);
+}
+
 .hidden {
   display: none;
 }
 
-.card {
-  display: flex;
-  justify-content: space-around;
-  width: 35%;
-  border: 1px solid lightgrey;
-  border-radius: 7px;
-  margin: auto;
-  margin-bottom: 20px;
-  background-color: #fff;
-  padding: 10px 15px;
-}
-
-.avatar {
-  border-radius: 50%;
-}
-
-p {
-  text-align: right;
-}

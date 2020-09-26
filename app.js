@@ -32,7 +32,7 @@ function displayEmployees(employeeData) {
     let picture = employee.picture;
 
     employeeHTML += `
-            <div class="card" data-index"${index}">
+            <div class="card" data-index="${index}">
             <div class="card-img-container">
                 <img class="card-avatar" src="${picture.large}" alt="${name.first}'s profile picture"/>
               </div>
@@ -62,14 +62,14 @@ function displayModal(index) {
   let date = new Date(dob.date);
 
   let modalHTML = `
-        <img class="avatar" src="${employee.picture.large}"/>
+        <img class="avatar" src="${picture.large}"/>
         <div class="text-container">
-            <h2 class="name">${employee.name.first} ${employee.name.last}</h2>
-            <p class="email">${employee.email}</p>
-            <p class="address">${employee.city}</p>
+            <h2 class="name">${name.first} ${name.last}</h2>
+            <p class="email">${email}</p>
+            <p class="address">${city}</p>
             <hr/>
-            <p>${employee.phone}</p>
-            <p class="address">${employee.street}, ${employee.state} ${employee.postalCode}</p>
+            <p>${phone}</p>
+            <p class="address">${street}, ${state} ${postalCode}</p>
             <p>Birthday:${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
             </div>
     `;
@@ -82,16 +82,16 @@ function displayModal(index) {
 Event Listeners
 ---------------------------*/
 
-// gridContainer.querySelectorAll('.card').forEach((card,index) => {
-  
-
-// });
 
 gridContainer.addEventListener('click', (e) => {
   let element = e.target;
 if (element !== gridContainer) {
- console.log(displayModal(displayEmployees));
-}
+  const card = element.closest('.card');
+  const index = card.getAttribute('data-index')
+    
+    displayModal(index);
+    };
+ 
 })
 
 

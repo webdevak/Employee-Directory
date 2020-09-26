@@ -4,6 +4,7 @@ const urlApi = `https://randomuser.me/api/?results=12&inc=name, picture,
 email, location, phone, dob &noinfo &nat=US`;
 const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
+const urlNat = 'https://randomuser.me/api/?nat=us';
 
 const modalClose = document.querySelector(".modal-close");
 
@@ -11,20 +12,33 @@ const modalClose = document.querySelector(".modal-close");
 /*---------------------
     Fetch Functions
 -----------------------*/
+
+
 fetch(urlApi)
   .then(res => res.json())
   .then(res => res.results)
   .then(displayEmployees)
   .catch((err) => Error(err.responseText));
 
+  fetch(urlNat)
+    .then(res => res.json())
+    .then(res => res.results)
+    // .then(searchEmployees)
+
 
 
 /*---------------------
     Helper functions
 -----------------------*/
+
+// Displays the employee data content on the page
+
 function displayEmployees(employeeData) {
    employees = employeeData;
+   // using object literals to interpolate employee data into html
   let employeeHTML = "";
+
+  // using a forEach loop to loop through employee data
   employees.forEach((employee, index) => {
     let name = employee.name;
     let email = employee.email;
@@ -47,6 +61,7 @@ function displayEmployees(employeeData) {
   gridContainer.innerHTML = employeeHTML;
 }
 
+// Displays the Modal info on the page
 
 function displayModal(index) {
   const modalContainer = document.querySelector(".modal-content");
@@ -82,7 +97,7 @@ function displayModal(index) {
 Event Listeners
 ---------------------------*/
 
-
+//When cards on the page are clicked the modal on the page appears
 gridContainer.addEventListener('click', (e) => {
   let element = e.target;
 if (element !== gridContainer) {
@@ -94,7 +109,31 @@ if (element !== gridContainer) {
  
 })
 
+// When the X is clicked the modal closes
 
 modalClose.addEventListener("click", (e) => {
   overlay.classList.add("hidden");
+});
+
+//=====================================================
+    //Search bar functionality
+
+const searchBar = document.querySelector(".search");
+
+
+searchBar.addEventListener("keyup", function (e) {
+  const term = e.target.value.toLowerCase();
+  const card = document.querySelectorAll(".card-avatar");
+  const cardText = document.getElementsByTagName('card-text-container');
+  // const index = document.getAttribute('data-index')
+
+  for (i = 0; i < card.length; i++) {
+    const text = cardText[i].getAttribute('data-index').toLowerCase();
+    const imageSearch = text.indexOf(term)
+    if (imageSearch > -1) {
+      cardText[i].style.display = 'block';
+    } else {
+        cardText[i].style.display = 'none';
+    }
+  }
 });

@@ -15,6 +15,16 @@ header {
   color: #53535a;
 }
 
+.search {
+  margin: auto;
+    display: block;
+    padding: 10px 15px;
+    border-width: 2px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 350px;
+}
+
 .grid-container {
   display: flex;
   flex-wrap: wrap;

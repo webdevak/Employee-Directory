@@ -4,7 +4,7 @@ const urlApi = `https://randomuser.me/api/?results=12&inc=name, picture,
 email, location, phone, dob &noinfo &nat=US`;
 const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
-const modalContainer = document.querySelector(".modal-content");
+
 const modalClose = document.querySelector(".modal-close");
 
 
@@ -49,7 +49,7 @@ function displayEmployees(employeeData) {
 
 
 function displayModal(index) {
-
+  const modalContainer = document.querySelector(".modal-content");
   let {
     name,
     dob,
@@ -83,23 +83,17 @@ Event Listeners
 ---------------------------*/
 
 // gridContainer.querySelectorAll('.card').forEach((card,index) => {
-//   card.addEventListener('click', () => {
-//     // code to call modal function will go here
-//     displayModal(employees[index])
-//   })
-// })
+  
 
+// });
 
-
-gridContainer.addEventListener("click", (e) => {
+gridContainer.addEventListener('click', (e) => {
   let element = e.target;
-  if (element !== gridContainer) {
-    const card = element.closest(".card");
-    const index = card.getAttribute("data-index");
+if (element !== gridContainer) {
+ console.log(displayModal(displayEmployees));
+}
+})
 
-    displayModal(index);
-  }
-});
 
 modalClose.addEventListener("click", (e) => {
   overlay.classList.add("hidden");

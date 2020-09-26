@@ -1,3 +1,5 @@
+
+
 //Global variables
 let employees = displayEmployees;
 const urlApi = `https://randomuser.me/api/?results=12&inc=name, picture,
@@ -7,6 +9,7 @@ const overlay = document.querySelector(".overlay");
 const urlNat = 'https://randomuser.me/api/?nat=us';
 
 const modalClose = document.querySelector(".modal-close");
+
 
 
 /*---------------------
@@ -70,7 +73,7 @@ function displayModal(index) {
     dob,
     phone,
     email,
-    location: { city, street, state, postalCode },
+    location: { city, street, state, postcode },
     picture,
   } = employees[index];
 
@@ -84,7 +87,7 @@ function displayModal(index) {
             <p class="address">${city}</p>
             <hr/>
             <p>${phone}</p>
-            <p class="address">${street}, ${state} ${postalCode}</p>
+            <p class="address">${city}, ${state} ${postcode}</p>
             <p>Birthday:${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
             </div>
     `;

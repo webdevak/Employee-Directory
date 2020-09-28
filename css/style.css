@@ -2,13 +2,11 @@
   box-sizing: border-box;
 }
 
-
 body {
   position: relative;
   background-color: #f5f5f5;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
-
 
 header {
   margin-left: 5%;
@@ -18,12 +16,12 @@ header {
 
 .search {
   margin: auto;
-    display: block;
-    padding: 10px 15px;
-    border-width: 2px;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 350px;
+  display: block;
+  padding: 10px 15px;
+  border-width: 2px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 350px;
 }
 
 .grid-container {
@@ -36,7 +34,6 @@ header {
   padding-bottom: 100px;
 }
 
-
 .card {
   display: flex;
   width: 100%;
@@ -48,6 +45,11 @@ header {
   padding: 10px;
   overflow: hidden;
   cursor: pointer;
+}
+
+.card:hover {
+  filter: drop-shadow(0 0 0.75rem rgb(158, 140, 140));
+  transition: filter ease .6s;
 }
 
 .card-avatar {
@@ -63,7 +65,6 @@ header {
 .card-text-container > p {
   color: #8b8383;
   text-align: left;
-
 }
 
 .modal {
@@ -83,6 +84,10 @@ header {
   top: 5px;
 }
 
+.avatar {
+  border-radius: 50%;
+}
+
 .overlay {
   position: absolute;
   left: 0;
@@ -95,3 +100,6 @@ header {
   display: none;
 }
 
+footer {
+  text-align: center;
+}

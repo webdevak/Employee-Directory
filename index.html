@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/lightbox.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <title>AWESOME STARTUP EMPLOYEE DIRECTORY</title>
   </head>
   <body>
     <header>
       <h3>AWESOME STARTUP EMPLOYEE DIRECTORY</h3>
-      <input type="text" placeholder="Search for Employee..." class="search">
+      <!-- <input type="text" placeholder="Search for Employee..." class="search"> -->
     
     </header>
 
@@ -101,10 +103,10 @@
       </div>
     </main>
 
-    <div class="overlay hidden">
+    <div class="overlay hidden" >
       <div class="modal">
         <button class="modal-close">X</button>
-        <div class="modal-content">
+        <div class="modal-content" >
           <!-- this is where JS will be inserted with employee info  -->
           <img src="" class="avatar" alt="Profile Picture">
             <h2 class="name">name</h2>
@@ -118,7 +120,9 @@
     </div>
   </div>
 
-    
-    <script src="app.js"></script>
+  <footer><span>&copy;CopyRight, Awesome Startup 2020.</span></footer>
+
+  <script src="js/lightbox-plus-jquery.min.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

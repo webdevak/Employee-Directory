@@ -121,8 +121,6 @@ nextBtn.addEventListener('click', (e) => {
   displayModal(counter);
 });
 
-
-
 prevBtn.addEventListener('click', (e) => {
 if (counter > 0) {
   counter --;

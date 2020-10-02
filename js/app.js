@@ -121,6 +121,8 @@ nextBtn.addEventListener('click', (e) => {
   displayModal(counter);
 });
 
+
+
 prevBtn.addEventListener('click', (e) => {
 if (counter > 0) {
   counter --;
@@ -143,7 +145,7 @@ searchBar.addEventListener("keyup", function (e) {
   Array.from(cards).forEach(function(cards){
   const name = cards.textContent;
       if(name.toLowerCase().indexOf(term) !== -1) {
-            cards.style.display = 'flex';
+            cards.style.display = 'block';
             
       }  else {
             cards.style.display = 'none';

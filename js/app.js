@@ -145,7 +145,7 @@ searchBar.addEventListener("keyup", function (e) {
   Array.from(cards).forEach(function(cards){
   const name = cards.textContent;
       if(name.toLowerCase().indexOf(term) !== -1) {
-            cards.style.display = 'block';
+            cards.style.display = 'flex';
             
       }  else {
             cards.style.display = 'none';

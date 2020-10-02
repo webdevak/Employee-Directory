@@ -4,7 +4,6 @@ const urlApi = `https://randomuser.me/api/?results=12&inc=name, picture,
 email, location, phone, dob &noinfo &nat=US`;
 const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
-const urlNat = "https://randomuser.me/api/?nat=us";
 const modalClose = document.querySelector(".modal-close");
 
 /*---------------------
@@ -87,7 +86,7 @@ function displayModal(index) {
 Event Listeners
 ---------------------------*/
 
-//When cards on the page are clicked the modal on the page appears
+//When cards on the page are clicked the modal appears
 gridContainer.addEventListener("click", (e) => {
   let element = e.target;
   if (element !== gridContainer) {
@@ -104,27 +103,54 @@ modalClose.addEventListener("click", (e) => {
   overlay.classList.add("hidden");
 });
 
+
+const modal = document.querySelector('.modal');
+
+// Buttons for modal
+const nextBtn = document.querySelector('.nextBtn');
+const prevBtn = document.querySelector('.prevBtn');
+
+//Counter
+let counter = 0;
+
+
+nextBtn.addEventListener('click', (e) => {
+  if (counter < 11) {
+    counter ++;
+  }
+  displayModal(counter);
+});
+
+
+
+prevBtn.addEventListener('click', (e) => {
+if (counter > 0) {
+  counter --;
+}
+displayModal(counter);
+
+});
+
 //=====================================================
-//Search bar functionality
+// Search bar functionality
 
 
-// const searchBar = document.querySelector(".search");
+const searchBar = document.getElementById("search");
 
-// searchBar.addEventListener("keyup", function (e) {
-//   const term = e.target.value.toLowerCase();
-//   const cards = document.querySelectorAll(".card");
+searchBar.addEventListener("keyup", function (e) {
+  const term = e.target.value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+  const cardName = document.querySelector('.card-name')
   
-//   Array.from(cards).forEach(function(cards){
-//   const name = document.querySelector('.card-name').textContent;
-//       if(name.toLowerCase().indexOf(term) !== -1) {
-//             cards.style.display = 'block';
-//       }  else {
-//             cards.style.display = 'none';
-//       }
-// })
+  Array.from(cards).forEach(function(cards){
+  const name = cards.textContent;
+      if(name.toLowerCase().indexOf(term) !== -1) {
+            cards.style.display = 'block';
+            
+      }  else {
+            cards.style.display = 'none';
+      }
+})
   
-// });
-
-
-
+});
 

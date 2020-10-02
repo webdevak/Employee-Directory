@@ -113,7 +113,7 @@ const prevBtn = document.querySelector('.prevBtn');
 //Counter
 let counter = 0;
 
-
+//arrow button clicks to next modal 
 nextBtn.addEventListener('click', (e) => {
   if (counter < 11) {
     counter ++;
@@ -121,6 +121,7 @@ nextBtn.addEventListener('click', (e) => {
   displayModal(counter);
 });
 
+//arrow button clicks to previous modal 
 prevBtn.addEventListener('click', (e) => {
 if (counter > 0) {
   counter --;

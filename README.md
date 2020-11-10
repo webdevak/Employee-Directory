@@ -1,5 +1,5 @@
 # Employee Directory
  Awesome StartUp App,
- Used an API to gather info to create an Employee Directory.
- JavaScript dominates this project.But html and css were also used.
- Search functionality to search through directory!
+ Used an API to gather information then created an Employee Directory and displayed the information on the page using css grid.
+ JavaScript dominates this project.But used html and css to lay the foundation.
+ Also Search functionality to search through directory!
